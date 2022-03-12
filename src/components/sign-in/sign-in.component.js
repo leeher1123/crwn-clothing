@@ -16,7 +16,7 @@ function SignIn() {
     e.preventDefault();
 
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      await auth.signInWithEmailAndPassword(email, password); // 로그인하면 signInWithEmailAndPassword로 전달
       setUserCredentials({ email: '', password: '' });
     } catch (err) {
       console.log(err);
@@ -54,7 +54,11 @@ function SignIn() {
           />
           <div className='buttons'>
             <CustomButton>Sign in</CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton
+              type='submit'
+              onClick={signInWithGoogle}
+              isGoogleSignIn
+            >
               Sign in with Google
             </CustomButton>
           </div>
