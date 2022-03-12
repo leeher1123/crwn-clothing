@@ -9,7 +9,6 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  console.log(currentUser);
   const authStateListener = () => {
     auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -20,7 +19,6 @@ function App() {
             ...snapShot.data(),
           });
         });
-        console.log(currentUser);
       } else {
         setCurrentUser(userAuth);
       }
